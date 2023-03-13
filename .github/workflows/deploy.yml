@@ -1,0 +1,22 @@
+name: Build and Deploy
+on: [push]
+env:
+  APP_NAME: ${{ github.event.repository.name }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    environment:
+      name: github-pages
+      url: ${{ github.event.repository.name }}.github.io/${{ github.event.repository.name }}
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v3
+    - name: Install dependencies
+      run: npm install
+    - name: Build app
+      run: npm run build
+    - name: Deploy to Github Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: dist
