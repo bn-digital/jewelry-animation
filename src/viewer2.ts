@@ -48,8 +48,11 @@ async function setupViewer2() {
 
     if (controls) {
         controls.autoRotate = true;
+        // @ts-ignore
         controls.enableDamping = true;
+        // @ts-ignore
         controls.enableZoom = false;
+        // @ts-ignore
         controls.autoRotateSpeed = 1;
     }
 
