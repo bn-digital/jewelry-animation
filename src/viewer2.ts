@@ -48,8 +48,11 @@ async function setupViewer2() {
 
     if (controls) {
         controls.autoRotate = true;
+        // @ts-ignore
         controls.enableDamping = true;
+        // @ts-ignore
         controls.enableZoom = false;
+        // @ts-ignore
         controls.autoRotateSpeed = 1;
     }
 
@@ -63,8 +66,6 @@ async function setupViewer2() {
         end: 'center center',
         onEnter: ()=>{camViewPlugin?.camViews[0].focusView()},
         onEnterBack: ()=>{camViewPlugin?.camViews[0].focusView()},
-        onLeave: ()=>{console.log('leave')},
-        // markers: true,
         scrub: 1
     })
 
@@ -75,7 +76,6 @@ async function setupViewer2() {
         end: 'top bottom',
         onEnter: ()=>{camViewPlugin?.camViews[1].focusView()},
         onEnterBack: ()=>{camViewPlugin?.camViews[0].focusView()},
-        // markers: true,
         scrub: 1
     })
     ScrollTrigger.create({
@@ -84,15 +84,10 @@ async function setupViewer2() {
         endTrigger: '.section-3',
         end: 'top bottom',
         onEnter: ()=>{camViewPlugin?.camViews[2].focusView()},
-        onEnterBack: ()=>{
-            console.log('section 3 back')
-            camViewPlugin?.camViews[1].focusView()},
-        // markers: true,
+        onEnterBack: ()=>{camViewPlugin?.camViews[1].focusView()},
         scrub: 1
     })
-
 }
-
 setupViewer2().then()
 
 

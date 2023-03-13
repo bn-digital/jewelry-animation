@@ -20,8 +20,6 @@ gsap.config({
     nullTargetWarn: false,
 });
 gsap.registerPlugin(ScrollTrigger)
-const ringArea = document.getElementById('ring-area-2')
-console.log(ringArea);
 
 async function setupViewer2() {
     const viewer2 = new ViewerApp({
@@ -30,7 +28,6 @@ async function setupViewer2() {
         isAntialiased: true
     })
 
-    // Adding plugins
     const manager = await viewer2.addPlugin(AssetManagerPlugin)
     await viewer2.addPlugin(GBufferPlugin)
     await viewer2.addPlugin(new ProgressivePlugin(32))
@@ -49,8 +46,11 @@ async function setupViewer2() {
     console.log(controls);
     if (controls) {
         controls.autoRotate = true;
+        // @ts-ignore
         controls.enableDamping = true;
+        // @ts-ignore
         controls.enableZoom = false;
+        // @ts-ignore
         controls.autoRotateSpeed = 1;
 
     }
@@ -121,7 +121,6 @@ async function setupViewer2() {
     setupScrollAnimation()
     function onUpdate() {
         needsUpdate = true
-        // viewer.renderer.updateDirty()
         viewer2.setDirty()
     }
 
