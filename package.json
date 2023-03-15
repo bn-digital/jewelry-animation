@@ -1,5 +1,5 @@
 {
-  "name": "jewelry-vanilla-ts",
+  "name": "jewelry-animation",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,17 +8,18 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "prettier": "@bn-digital/prettier-config",
+  "dependencies": {
+    "webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-0.5.5.tgz",
+    "gsap": "^3.11.4"
+  },
   "devDependencies": {
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0",
+    "@bn-digital/prettier-config": "^2.1.12",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "@types/node": "^18.15.3",
     "@types/three": "^0.149.0",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.5.5.tgz",
-    "webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-0.5.5.tgz",
-    "gsap": "^3.11.4",
     "@types/gsap": "^3.0.0"
-  },
-  "dependencies": {
-    "node-sass": "^8.0.0",
-    "sass": "^1.58.3"
   }
 }
