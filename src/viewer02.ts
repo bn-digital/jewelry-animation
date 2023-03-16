@@ -25,7 +25,7 @@ ScrollTrigger.create({
   scrub: 1,
 })
 
-async function setupViewer2() {
+async function setupViewer02() {
   const viewer2 = new ViewerApp({
     canvas: document.getElementById('canvas-2') as HTMLCanvasElement,
   })
@@ -100,4 +100,4 @@ async function setupViewer2() {
     scrub: 1,
   })
 }
-setupViewer2().then()
+setupViewer02().then()
