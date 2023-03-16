@@ -17,6 +17,7 @@ import {
 } from 'webgi'
 
 gsap.registerPlugin(ScrollTrigger)
+const loadingCover = document.querySelector('.loading-cover')!
 const arrow = document.querySelector('.arrow')!
 const section01 = document.querySelector('.section-1')!
 arrow.addEventListener('click', () => {
@@ -43,4 +44,6 @@ async function setupViewer01() {
   const camViewPlugin = viewer.getPlugin(CameraViewPlugin)
   camViewPlugin?.animateAllViews()
 }
-setupViewer01().then()
+setupViewer01().then(()=>{
+  loadingCover.classList.add('hidden')
+})
