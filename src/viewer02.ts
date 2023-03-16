@@ -30,7 +30,7 @@ async function setupViewer02() {
     canvas: document.getElementById('canvas-2') as HTMLCanvasElement,
   })
 
-  const manager = await viewer2.addPlugin(AssetManagerPlugin)
+  const manager02 = await viewer2.addPlugin(AssetManagerPlugin)
   await viewer2.addPlugin(GBufferPlugin)
   await viewer2.addPlugin(new ProgressivePlugin(32))
   await viewer2.addPlugin(GammaCorrectionPlugin)
@@ -42,19 +42,20 @@ async function setupViewer02() {
 
   viewer2.renderer.refreshPipeline()
 
-  await manager.addFromPath('./model/ring09.glb')
-  const controls = viewer2.scene.activeCamera.controls
-  viewer2.scene.activeCamera.setCameraOptions({ zoom: 0.8 })
+  await manager02.addFromPath('./model/ring09.glb').then(()=>{
+    const controls = viewer2.scene.activeCamera.controls
+    viewer2.scene.activeCamera.setCameraOptions({ zoom: 0.8 })
 
-  if (controls) {
-    controls.autoRotate = true
-    // @ts-ignore
-    controls.enableDamping = true
-    // @ts-ignore
-    controls.enableZoom = false
-    // @ts-ignore
-    controls.autoRotateSpeed = 1
-  }
+    if (controls) {
+      controls.autoRotate = true
+      // @ts-ignore
+      controls.enableDamping = true
+      // @ts-ignore
+      controls.enableZoom = false
+      // @ts-ignore
+      controls.autoRotateSpeed = 1
+    }
+  })
 
   const camViewPlugin = viewer2.getPlugin(CameraViewPlugin)
   camViewPlugin?.camViews[0].focusView()

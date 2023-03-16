@@ -27,7 +27,7 @@ async function setupViewer01() {
   const viewer = new ViewerApp({
     canvas: document.getElementById('hero-canvas') as HTMLCanvasElement,
   })
-  const manager = await viewer.addPlugin(AssetManagerPlugin)
+  const manager01 = await viewer.addPlugin(AssetManagerPlugin)
   await viewer.addPlugin(GBufferPlugin)
   await viewer.addPlugin(new ProgressivePlugin(32))
   await viewer.addPlugin(GammaCorrectionPlugin)
@@ -37,12 +37,12 @@ async function setupViewer01() {
   await viewer.addPlugin(CanvasSnipperPlugin)
   await viewer.addPlugin(new TonemapPlugin(true))
   viewer.renderer.refreshPipeline()
-
-  await manager.addFromPath('./model/ring08.glb')
-
   viewer.scene.activeCamera.setCameraOptions({ zoom: 0.8 })
-  const camViewPlugin = viewer.getPlugin(CameraViewPlugin)
-  camViewPlugin?.animateAllViews()
+
+  await manager01.addFromPath('./model/ring08.glb').then(()=>{
+    const camViewPlugin = viewer.getPlugin(CameraViewPlugin)
+    camViewPlugin?.animateAllViews()
+  })
 }
 setupViewer01().then(()=>{
   loadingCover.classList.add('hidden')
