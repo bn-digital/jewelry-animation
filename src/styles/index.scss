@@ -1,13 +1,14 @@
+@import "reset";
+@import "style";
 
 @font-face {
   font-family: 'Roxie Rossa';
   font-style: normal;
-  src: local('Roxie Rossa'), url(/public/fonts/roxie.ttf) format('truetype');
+  src: local('Roxie Rossa'), url(/fonts/roxie.ttf) format('truetype');
 }
 
 * {
   box-sizing: border-box;
-
 }
 body {
   margin: 0;
