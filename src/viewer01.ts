@@ -22,7 +22,7 @@ const section01 = document.querySelector('.section-1')!
 arrow.addEventListener('click', () => {
   section01.scrollIntoView()
 })
-async function setupViewer() {
+async function setupViewer01() {
   const viewer = new ViewerApp({
     canvas: document.getElementById('hero-canvas') as HTMLCanvasElement,
   })
@@ -43,4 +43,4 @@ async function setupViewer() {
   const camViewPlugin = viewer.getPlugin(CameraViewPlugin)
   camViewPlugin?.animateAllViews()
 }
-setupViewer().then()
+setupViewer01().then()
